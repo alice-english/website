@@ -1,0 +1,27 @@
+h1 {
+  font-family: "Pinyon Script", cursive, sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+h2 {
+  font-family: "Pinyon Script", cursive, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+p {
+  font-family: "Delicious Handrawn", cursive;
+  font-style: normal;
+  font-size: 20px;
+}
+
+img {
+  height: 33%;
+  width: 49%;
+  border-style: solid;
+  border-width: 8px;
+  border-color: #ffe300;
+}
