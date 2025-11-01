@@ -153,8 +153,8 @@ const CANDY_DATA = JSON.parse(`
 
 
 // ---- Category inference ----
-const CHOC_WORDS = ["kitkat","twix","snickers","milky","hershey","reese","m&m","rolo","three musketeers","almond joy","milk duds","whoppers","payday","butterfinger","kinder","mr. goodbar","dove","godiva"];
-const FRUIT_WORDS = ["skittles","starburst","nerds","twizzlers","jolly rancher","gummies","taffy","fruit","toxic waste","airheads","smarties","sour patch","lifesavers","hi-chew"];
+const CHOC_WORDS = ["whoppers","kitkat","twix","snickers","milky","hershey","reese","m&m","rolo","three musketeers","almond joy","milk duds","whoppers","payday","butterfinger","kinder","mr. goodbar","dove","godiva"];
+const FRUIT_WORDS = ["lollipops", "skittles","starburst","nerds","twizzlers","jolly rancher","gummies","taffy","fruit","toxic waste","airheads","smarties","sour patch","lifesavers","hi-chew"];
 
 function isJuice(name){
   return (name || "").toLowerCase().includes("juice");
