@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Halloween Candy Haul — Infographic</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Theme background layers -->
+  <div class="bg-moon" aria-hidden="true"></div>
+  <div class="bg-stars" aria-hidden="true"></div>
+  <div class="frame tl" aria-hidden="true"></div>
+  <div class="frame tr" aria-hidden="true"></div>
+  <div class="frame bl" aria-hidden="true"></div>
+  <div class="frame br" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <h1>Halloween Candy Haul</h1>
+    <p class="subtitle">Clean stats. Subtle spooky vibes.</p>
+  </header>
+
+  <main class="container">
+    <!-- KPIs -->
+    <section class="card hero">
+      <div class="metric">
+        <div class="metric-number" id="totalPieces">0</div>
+        <div class="metric-label">Total Pieces</div>
+      </div>
+      <div class="metric">
+        <div class="metric-number" id="totalWeight">0 g</div>
+        <div class="metric-label">Total Weight</div>
+      </div>
+      <div class="metric">
+        <div class="metric-number" id="avgWeight">0 g</div>
+        <div class="metric-label">Avg / Piece</div>
+      </div>
+      <div class="metric">
+        <div class="metric-number" id="uniqueTypes">0</div>
+        <div class="metric-label">Unique Candies</div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="card controls">
+    <div class="filters">
+        <label><input type="checkbox" class="cat-filter" value="chocolate" checked> Chocolate</label>
+        <label><input type="checkbox" class="cat-filter" value="fruity" checked> Fruity</label>
+        <label><input type="checkbox" class="cat-filter" value="other" checked> Other</label>
+        <!-- New: Juice toggle (default OFF) -->
+        <label><input type="checkbox" id="juiceFilter" value="juice"> Juice</label>
+    </div>
+    <button id="resetBtn" class="btn">Reset Filters</button>
+    </section>
+
+
+    <!-- Row 1 -->
+    <section class="grid two">
+      <div class="card">
+        <h2>Pieces by Candy</h2>
+        <div class="chart-wrap">
+          <svg id="barChart" viewBox="0 0 800 420" role="img" aria-label="Pieces by candy"></svg>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Weight Share</h2>
+        <div class="chart-wrap">
+          <svg id="donutChart" viewBox="0 0 420 420" role="img" aria-label="Weight share"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Row 2 -->
+    <section class="grid two">
+      <div class="card">
+        <h2>Bubble Size (Pieces)</h2>
+        <div class="chart-wrap">
+          <svg id="bubbleChart" viewBox="0 0 800 420" role="img" aria-label="Bubble chart by pieces"></svg>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Average Weight per Piece</h2>
+        <div class="chart-wrap">
+          <svg id="lollipopChart" viewBox="0 0 800 420" role="img" aria-label="Average weight per piece"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Row 3 -->
+    <section class="grid two">
+      <div class="card">
+        <h2>Counts by Category</h2>
+        <div class="chart-wrap">
+          <svg id="stackedChart" viewBox="0 0 800 420" role="img" aria-label="Counts by category"></svg>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Count vs Weight (Heatmap)</h2>
+        <div class="chart-wrap">
+          <svg id="heatmapChart" viewBox="0 0 800 420" role="img" aria-label="Heatmap count vs weight"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- MVPs -->
+    <section class="grid two">
+      <div class="card">
+        <h2>Most Pieces</h2>
+        <div id="mvpCount" class="mvp"></div>
+      </div>
+      <div class="card">
+        <h2>Heaviest Total</h2>
+        <div id="mvpWeight" class="mvp"></div>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="card">
+      <h2>Full Table</h2>
+      <div class="table-wrap">
+        <table id="dataTable" class="data-table" aria-label="Candy data table">
+          <thead>
+            <tr>
+              <th>Candy</th>
+              <th class="num">Count</th>
+              <th class="num">Weight (g)</th>
+              <th class="num">Avg (g)</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>2025 Halloween Haul</p>
+  </footer>
+
+  <div id="tooltip" role="tooltip" class="tooltip" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
