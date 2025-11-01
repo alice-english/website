@@ -1,0 +1,112 @@
+:root{
+  --bg:#06070a;
+  --ink:#eef2f7;
+  --muted:#a7b0bb;
+
+  /* Flat Halloween accents */
+  --orange:#ff7a1a;
+  --purple:#7b61ff;
+  --amber:#ffb300;
+  --green:#2ed17a;
+
+  --card:#0e1117;
+  --grid-gap:1rem;
+  --radius:16px;
+  --shadow:0 10px 22px rgba(0,0,0,.45);
+  --sans: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+
+/* Subtle background only (no gradients) */
+.bg-moon{position:fixed;inset:0;z-index:-2;background:radial-gradient(500px 300px at 85% 10%, rgba(255,255,255,.08), transparent 60%)}
+.bg-stars{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.22;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff 30%, transparent 31%),
+    radial-gradient(2px 2px at 70% 15%, #fff 30%, transparent 31%),
+    radial-gradient(2px 2px at 80% 60%, #fff 30%, transparent 31%),
+    radial-gradient(2px 2px at 35% 75%, #fff 30%, transparent 31%);
+}
+
+/* Very light frame corners */
+.frame{position:fixed;width:140px;height:140px;z-index:-1;pointer-events:none;opacity:.12;background:radial-gradient(70px 70px at 100% 0, rgba(255,255,255,.35), transparent 70%)}
+.frame.tl{top:0;left:0;transform:scaleX(-1)}
+.frame.tr{top:0;right:0}
+.frame.bl{bottom:0;left:0;transform:scale(-1,-1)}
+.frame.br{bottom:0;right:0;transform:scaleY(-1)}
+
+.site-header{padding:2rem 1rem;text-align:center}
+.site-header h1{margin:0;font-size:2rem}
+.subtitle{margin:.4rem 0 0;color:var(--muted)}
+
+.container{max-width:1200px;margin:0 auto;padding:1rem}
+
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1rem 1.25rem;
+}
+
+.hero{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gap)}
+.metric{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,.06);
+  background:#0c0f14;
+}
+.metric-number{font-size:1.9rem;font-weight:800}
+.metric-label{color:var(--muted)}
+
+.controls{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.filters label{margin-right:1rem;cursor:pointer}
+.btn{
+  border:none;color:white;font-weight:800;padding:.6rem 1rem;border-radius:999px;cursor:pointer;
+  background:var(--purple);
+}
+
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap);margin-top:1rem}
+.chart-wrap{width:100%;overflow:auto;padding:.25rem}
+
+/* Table */
+.table-wrap{overflow:auto;margin-top:.5rem}
+.data-table{width:100%;border-collapse:separate;border-spacing:0}
+.data-table thead th{position:sticky;top:0;background:var(--card);z-index:1}
+.data-table th,.data-table td{padding:.6rem .7rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.data-table .num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* MVP */
+.mvp{display:flex;align-items:center;gap:1rem}
+.badge{
+  width:54px;height:54px;border-radius:12px;display:grid;place-items:center;
+  background:var(--orange);font-weight:900;color:#111;
+  border:1px solid rgba(255,255,255,.55)
+}
+.mvp .text .name{font-weight:800}
+.mvp .text .sub{color:var(--muted);font-size:.95rem}
+
+/* SVG (flat fills, no glows) */
+svg text{fill:var(--ink);font-family:var(--sans);font-size:12px}
+svg .bar, svg .slice, svg .bubble, svg .stem, svg .dot, svg .stack, svg .cell {opacity:.96}
+
+/* Tooltip */
+.tooltip{
+  position:fixed;pointer-events:none;padding:.45rem .6rem;border-radius:8px;
+  background:#0b0f18;color:#fff;border:1px solid rgba(255,255,255,.14);
+  font-size:.9rem;transform:translate(-50%,-120%);white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.45)
+}
+
+/* Print */
+@media print{
+  :root{--ink:#101418;--muted:#475569}
+  body{background:#fff;color:#101418}
+  .bg-moon,.bg-stars,.frame,.btn{display:none}
+}
+
+@media (max-width:1000px){
+  .hero{grid-template-columns:repeat(2,1fr)}
+  .grid.two{grid-template-columns:1fr}
+}
+.chart-wrap svg{ overflow: visible; }
+.chart-wrap svg { overflow: visible; } /* ensure labels beyond the donut aren't clipped */
