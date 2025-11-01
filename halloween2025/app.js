@@ -139,7 +139,7 @@ const CANDY_DATA = JSON.parse(`
 "count": 3
 },
 {
-"name": "Whoopers",
+"name": "Whoppers",
 "weight": 14,
 "count": 2
 },
